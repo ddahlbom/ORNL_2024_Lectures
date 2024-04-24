@@ -1,5 +1,3 @@
-# ORNL_2024_Lectures
-
 ## Materials from 2024 Lecture Series at ORNL, "Ideas behind the Sunny.jl package"
 
 This repository contains the lecture slides (in the `data` directory) as well as the code examples used during the lectures (in the `scripts` directory). These examples
