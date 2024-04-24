@@ -36,7 +36,7 @@ plot_spins(sys_reshaped)
 units = [(1,2)]
 sys_entangled = EntangledSystem(sys_reshaped, units)
 
-# Set the state to S=1 singlet (alternatively, randomize_spins! and minimize_energy!)
+# Set the state to S=1 singlet (alternatively, use `randomize_spins!` followed by `minimize_energy!`)
 gs_ref = Sunny.CVec{9}(
     0.0, 0.0, √3/3, 0.0, -√3/3, 0.0, √3/3, 0, 0
 )

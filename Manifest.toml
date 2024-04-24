@@ -1510,7 +1510,9 @@ version = "7.2.1+1"
 
 [[deps.Sunny]]
 deps = ["CrystalInfoFramework", "DataStructures", "DynamicPolynomials", "FFTW", "FilePathsBase", "HCubature", "JLD2", "LinearAlgebra", "LinearMaps", "OffsetArrays", "Optim", "PrecompileTools", "Printf", "Random", "RowEchelon", "SpecialFunctions", "Spglib", "StaticArrays"]
-path = "/Users/dahlbom/.julia/dev/Sunny.jl/"
+git-tree-sha1 = "92f8559d3c3266a919a1439647825390bc385dd2"
+repo-rev = "entangled-units"
+repo-url = "https://github.com/SunnySuite/Sunny.jl.git"
 uuid = "2b4a2ac8-8f8b-43e8-abf4-3cb0c45e8736"
 version = "0.5.9"
 
