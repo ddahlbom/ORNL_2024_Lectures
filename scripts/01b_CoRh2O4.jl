@@ -1,8 +1,8 @@
-# This script shows the basic steps necessary to calculate a finite temperature
-# powder averaged spectrum for the material CoRh₂O₄. By manipulating the
-# temperature, it is possible to reproduce figures similar to the experimental
-# results reported in L. Ge et al, "Spin order and dynamics in the
-# diamond-lattice Heisenberg antiferromagnets...", PRB 98 (2018):
+# This script shows the basic steps for calculating a finite temperature powder
+# averaged spectrum for the material CoRh₂O₄. By manipulating the temperature,
+# it is possible to reproduce figures similar to the experimental results
+# reported in L. Ge et al, "Spin order and dynamics in the diamond-lattice
+# Heisenberg antiferromagnets...", PRB 98 (2018):
 # https://doi.org/10.1103/PhysRevB.96.064413
 
 using DrWatson
@@ -44,8 +44,8 @@ suggest_timestep(sys, integrator; tol=1e-2)
 integrator.dt = dt = 0.025
 
 
-# Set up an object to contain spin-spin correlation data and begin accumulate samples.
-# This may take about a minute.
+# Set up an object to contain spin-spin correlation data and begin to accumulate
+# samples. This may take about a minute.
 nω = 200
 ωmax = 6.0
 sc = dynamical_correlations(sys_large; dt, nω, ωmax)
@@ -56,7 +56,7 @@ sc = dynamical_correlations(sys_large; dt, nω, ωmax)
     add_sample!(sc, sys_large)
 end
 
-# Now tell Sunny how to calculate the intensities at any wave vector. 
+# Now tell Sunny how to calculate the intensities. 
 formfactors = [FormFactor("Co2")]
 formula = intensity_formula(sc, :perp; formfactors)
 
@@ -75,6 +75,5 @@ fig = Figure()
 ax = Axis(fig[1,1]; xlabel="Q (Å⁻¹)", ylabel="ω (meV)")
 heatmap!(ax, radii, energies, output, colormap=:gnuplot2, colorrange=(0.0, 0.1))
 fig
-
 
 # It is a useful exercise to try this at several different temperatures.

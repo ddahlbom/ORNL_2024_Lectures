@@ -1,6 +1,6 @@
-# This script demonstrates how to use Sunny.jl to reproduce the magnetization
-# curve reported for Ba₂FeSi₂O₇ in M. Lee et al., "Field-induced level crossings...",
-# PRB 107 (2023): https://doi.org/10.1103/PhysRevB.107.144427
+# This script demonstrates how to reproduce the magnetization curve reported for
+# Ba₂FeSi₂O₇ in M. Lee et al., "Field-induced level crossings...", PRB 107
+# (2023): https://doi.org/10.1103/PhysRevB.107.144427
 
 using DrWatson
 @quickactivate "ORNL_2024_LECTURES"

@@ -1,14 +1,14 @@
-# This script contains the very simple examples shown on the first day of
-# lectures. The intention is simply to show how to use Landau-Lifshitz (LL)
-# dynamics in Sunny and to make plausible the assertion that, near T=0, LL
-# reproduces linear SWT.
+# This script contains the simple examples shown on the first day of lectures.
+# It demonstrates how to use Landau-Lifshitz (LL) dynamics in Sunny. It then
+# gives a demonstration of the fact that, near T=0, LL reproduces linear SWT.
 
 using DrWatson
 @quickactivate "ORNL_2024_LECTURES"
 using Sunny, LinearAlgebra, GLMakie
 
-# Set up a "crystal" to support of spin system. Here we just want a linear spin chain,
-# so we artificially set up a crystal that breaks symmetries along the b and c axes.
+# Set up a "crystal" to support of spin system. Here we just want a linear spin
+# chain, so we artificially set up a crystal that breaks symmetries along the b
+# and c axes.
 latvecs = lattice_vectors(1, 1.1, 2, 90, 90, 90)
 positions = [[0, 0, 0]]
 crystal = Crystal(latvecs, positions)
@@ -149,12 +149,13 @@ begin
 end
 
 
-# An advantage of the LL approach is that we can immediately procede to examine finite temperature
-# results which take into account all the nonlinearities of the LL equations.
+# An advantage of the LL approach is that we can immediately proceed to examine
+# finite temperature results, which take into account all the nonlinearities of
+# the LL equations.
 
 # We'll create a new correlations object and add 100 samples.
 sc_hiT = dynamical_correlations(sys; nω, ωmax, dt)
-integrator.kT = 1.0
+integrator.kT = 1.0  # Set the temperature to 1 J.
 for _ in 1:100
     for _ in 1:1000
         step!(sys, integrator)
@@ -165,6 +166,5 @@ end
 is_hiT = intensities_interpolated(sc_hiT, qs, formula)
 heatmap(1:size(is_classical, 1), available_energies(sc), is_hiT; colorrange=(0.0, 0.25), axis=(xticks=xticks, title="High T"))
 
-
 # Note that the broadening effect observed here is not artificial but an
-# intrinsic result of the full dynamics.
+# intrinsic product of the full nonlinear dynamics.

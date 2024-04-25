@@ -21,8 +21,7 @@ includet(srcdir("dispersion_relation.jl"))
 includet(srcdir("model.jl"))
 
 # Prepare the system and get symmetry information.
-D = -0.032
-sys = system_for_contraction(; D)
+sys = system_for_contraction()
 view_crystal(sys.crystal)
 print_symmetry_table(sys.crystal, 10.0)
 
@@ -104,8 +103,8 @@ begin
     end
 
     # Calculate and plot analytical dispersion.
-    d0 = disp0.(Js()..., D, path)
-    dm = dispm.(Js()..., D, path)
+    d0 = disp0.(Js()..., -0.032, path)
+    dm = dispm.(Js()..., -0.032, path)
     interval = 8
     scatter!(ax1, 1:interval:size(disp, 1), d0[1:interval:end]; marker=:xcross, color=:red, markersize=12.0, alpha=0.6, label="Analytical")
     scatter!(ax1, 1:interval:size(disp, 1), dm[1:interval:end]; marker=:xcross, color=:red, markersize=12.0, alpha=0.6)
